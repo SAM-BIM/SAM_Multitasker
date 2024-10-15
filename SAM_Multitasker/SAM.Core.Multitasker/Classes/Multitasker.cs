@@ -103,50 +103,15 @@ namespace SAM.Core.Multitasker
             }
             else if(multitaskerMode == MultitaskerMode.Parallel)
             {
-                if (maxConcurrency == int.MaxValue)
+                ParallelOptions parallelOptions = new ParallelOptions
                 {
-                    Parallel.For(0, multitaskerResults.Count, async i =>
-                    {
-                        multitaskerResults[i] = await func.Invoke(multitaskerInputs.ElementAt(i));
-                    });
-                }
-                else
+                    MaxDegreeOfParallelism = maxConcurrency == int.MaxValue ? Environment.ProcessorCount : maxConcurrency
+                };
+
+                Parallel.For(0, multitaskerResults.Count, parallelOptions, async i =>
                 {
-                    using (SemaphoreSlim semaphoreSlim = new SemaphoreSlim(maxConcurrency))
-                    {
-                        List<Task> tasks = new List<Task>();
-                        object lockObject = new object();
-
-                        for (int i =0; i < multitaskerInputs.Count(); i++)  // Assuming modelsToRun is a collection of your models
-                        {
-                            int index = i;
-
-                            await semaphoreSlim.WaitAsync();
-                            Task task = Task.Run(async () => 
-                            {
-                                try
-                                {
-                                    var result = await func.Invoke(multitaskerInputs.ElementAt(index));
-                                    lock (lockObject)
-                                    {
-                                        multitaskerResults[index] = result;
-                                    }
-                                }
-                                catch(Exception exception)
-                                {
-
-                                }
-                                finally
-                                {
-                                    semaphoreSlim.Release();
-                                }
-                            });
-                            tasks.Add(task);
-                        }
-
-                        await Task.WhenAll(tasks);
-                    }
-                }
+                    multitaskerResults[i] = await func.Invoke(multitaskerInputs.ElementAt(i));
+                });
             }
 
             return new MultitaskerResults(multitaskerResults);
