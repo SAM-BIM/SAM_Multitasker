@@ -13,6 +13,8 @@ namespace SAM.Core.Grasshopper.Multitasker
 {
     public class SAMMultitaskerRun : GH_SAMVariableOutputParameterComponent
     {
+        private int defaultMaxConcurrency = Environment.ProcessorCount >= 1 ? 1 : Environment.ProcessorCount - 1;
+
         /// <summary>
         /// Gets the unique ID for this component. Do not change this ID after release.
         /// </summary>
@@ -60,7 +62,8 @@ namespace SAM.Core.Grasshopper.Multitasker
                 param_String.SetPersistentData(MultitaskerMode.Series.ToString());
                 result.Add(new GH_SAMParam(param_String, ParamVisibility.Voluntary));
 
-                Param_Integer param_Integer = new Param_Integer() { Name = "maxConcurrency_", NickName = "maxConcurrency_", Description = "Max Concurrency",Optional = true , Access = GH_ParamAccess.item };
+                Param_Integer param_Integer = new Param_Integer() { Name = "_maxConcurrency_", NickName = "_maxConcurrency_", Description = "Max Concurrency",Optional = true , Access = GH_ParamAccess.item };
+                param_Integer.SetPersistentData(defaultMaxConcurrency);
                 result.Add(new GH_SAMParam(param_Integer, ParamVisibility.Voluntary));
 
                 Param_Boolean param_Boolean = new Param_Boolean() { Name = "_run_", NickName = "_run_", Description = "Run", Access = GH_ParamAccess.item };
@@ -193,13 +196,13 @@ namespace SAM.Core.Grasshopper.Multitasker
                 }
             }
 
-            int maxConcurrency = int.MaxValue;
-            index = Params.IndexOfInputParam("maxConcurrency_");
+            int maxConcurrency = defaultMaxConcurrency;
+            index = Params.IndexOfInputParam("_maxConcurrency_");
             if (index != -1)
             {
                 if (!dataAccess.GetData(index, ref maxConcurrency))
                 {
-                    maxConcurrency = int.MaxValue;
+                    maxConcurrency = defaultMaxConcurrency;
                 }
             }
 
