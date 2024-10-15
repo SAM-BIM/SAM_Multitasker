@@ -13,7 +13,7 @@ namespace SAM.Core.Grasshopper.Multitasker
 {
     public class SAMMultitaskerRun : GH_SAMVariableOutputParameterComponent
     {
-        private int defaultMaxConcurrency = Environment.ProcessorCount >= 1 ? 1 : Environment.ProcessorCount - 1;
+        private int defaultMaxConcurrency = Environment.ProcessorCount <= 1 ? 1 : Environment.ProcessorCount - 1;
 
         /// <summary>
         /// Gets the unique ID for this component. Do not change this ID after release.
@@ -23,7 +23,7 @@ namespace SAM.Core.Grasshopper.Multitasker
         /// <summary>
         /// The latest version of this component
         /// </summary>
-        public override string LatestComponentVersion => "1.0.1";
+        public override string LatestComponentVersion => "1.0.2";
 
         /// <summary>
         /// Provides an Icon for the component.
@@ -60,9 +60,9 @@ namespace SAM.Core.Grasshopper.Multitasker
 
                 param_String = new Param_String() { Name = "_multitaskerMode_", NickName = "_multitaskerMode_", Description = "Multitasker Mode", Access = GH_ParamAccess.item, Optional = true };
                 param_String.SetPersistentData(MultitaskerMode.Series.ToString());
-                result.Add(new GH_SAMParam(param_String, ParamVisibility.Voluntary));
+                result.Add(new GH_SAMParam(param_String, ParamVisibility.Binding));
 
-                Param_Integer param_Integer = new Param_Integer() { Name = "_maxConcurrency_", NickName = "_maxConcurrency_", Description = "Max Concurrency",Optional = true , Access = GH_ParamAccess.item };
+                Param_Integer param_Integer = new Param_Integer() { Name = "_maxConcurrency_", NickName = "_maxConcurrency_", Description = "Max Concurrency \n *Default avaliable nr of cores - 1",Optional = true , Access = GH_ParamAccess.item };
                 param_Integer.SetPersistentData(defaultMaxConcurrency);
                 result.Add(new GH_SAMParam(param_Integer, ParamVisibility.Voluntary));
 
