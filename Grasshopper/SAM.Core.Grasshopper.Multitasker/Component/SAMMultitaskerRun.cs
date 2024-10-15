@@ -21,7 +21,7 @@ namespace SAM.Core.Grasshopper.Multitasker
         /// <summary>
         /// The latest version of this component
         /// </summary>
-        public override string LatestComponentVersion => "1.0.0";
+        public override string LatestComponentVersion => "1.0.1";
 
         /// <summary>
         /// Provides an Icon for the component.
@@ -60,11 +60,13 @@ namespace SAM.Core.Grasshopper.Multitasker
                 param_String.SetPersistentData(MultitaskerMode.Series.ToString());
                 result.Add(new GH_SAMParam(param_String, ParamVisibility.Voluntary));
 
+                Param_Integer param_Integer = new Param_Integer() { Name = "maxConcurrency_", NickName = "maxConcurrency_", Description = "Max Concurrency",Optional = true , Access = GH_ParamAccess.item };
+                result.Add(new GH_SAMParam(param_Integer, ParamVisibility.Voluntary));
 
                 Param_Boolean param_Boolean = new Param_Boolean() { Name = "_run_", NickName = "_run_", Description = "Run", Access = GH_ParamAccess.item };
                 param_Boolean.SetPersistentData(false);
-
                 result.Add(new GH_SAMParam(param_Boolean, ParamVisibility.Binding));
+
                 return result.ToArray();
             }
         }
@@ -120,7 +122,7 @@ namespace SAM.Core.Grasshopper.Multitasker
             index = Params.IndexOfInputParam("_multitaskerMode_");
             if (index != -1)
             {
-                if(dataAccess.GetData(index, ref multitaskerModeString) && !string.IsNullOrWhiteSpace(multitaskerModeString))
+                if (dataAccess.GetData(index, ref multitaskerModeString) && !string.IsNullOrWhiteSpace(multitaskerModeString))
                 {
                     multitaskerMode = Core.Query.Enum<MultitaskerMode>(multitaskerModeString);
                 }
@@ -130,18 +132,18 @@ namespace SAM.Core.Grasshopper.Multitasker
 
             string[] names = new string[] { "System.Runtime", "Newtonsoft.Json" };
 
-            string[] paths = Directory.GetFiles(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "*.dll"); 
+            string[] paths = Directory.GetFiles(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "*.dll");
 
             List<Assembly> assemblies = new List<Assembly>();
-            foreach(string path in paths)
+            foreach (string path in paths)
             {
-                if(!Path.GetFileNameWithoutExtension(path).StartsWith("SAM"))
+                if (!Path.GetFileNameWithoutExtension(path).StartsWith("SAM"))
                 {
                     continue;
                 }
 
                 Assembly assembly = Assembly.LoadFrom(path);
-                if(assembly == null || assembly.IsDynamic)
+                if (assembly == null || assembly.IsDynamic)
                 {
                     continue;
                 }
@@ -185,19 +187,29 @@ namespace SAM.Core.Grasshopper.Multitasker
             if (index != -1)
             {
                 multitaskerInputs = new List<MultitaskerInput>();
-                if(!dataAccess.GetDataList(index, multitaskerInputs))
+                if (!dataAccess.GetDataList(index, multitaskerInputs))
                 {
                     multitaskerInputs = new List<MultitaskerInput>();
                 }
             }
 
-            Task<MultitaskerResults> task = multitasker.Run(multitaskerInputs);
+            int maxConcurrency = int.MaxValue;
+            index = Params.IndexOfInputParam("maxConcurrency_");
+            if (index != -1)
+            {
+                if (!dataAccess.GetData(index, ref maxConcurrency))
+                {
+                    maxConcurrency = int.MaxValue;
+                }
+            }
+
+            Task<MultitaskerResults> task = multitasker.Run(multitaskerInputs, maxConcurrency);
 
             bool succedded = false;
-            if(task != null)
+            if (task != null)
             {
                 MultitaskerResults multitaskerResults = task.Result;
-                if(multitaskerResults != null)
+                if (multitaskerResults != null)
                 {
                     succedded = multitaskerResults.Succedded;
 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SAM.Core.Multitasker
@@ -22,7 +23,7 @@ namespace SAM.Core.Multitasker
             this.multitaskerMode = multitaskerMode;
         }
 
-        public async Task<MultitaskerResults> Run(IEnumerable<MultitaskerInput> multitaskerInputs = null)
+        public async Task<MultitaskerResults> Run(IEnumerable<MultitaskerInput> multitaskerInputs = null, int maxConcurrency = int.MaxValue)
         {
             if (code == null || scriptOptions == null)
             {
@@ -66,7 +67,7 @@ namespace SAM.Core.Multitasker
 
                 try
                 {
-                    ScriptState<object> scriptState = await script.RunAsync(globals: x);
+                    ScriptState<object> scriptState = await script.RunAsync(globals: x == null ? new MultitaskerInput() : x);
                     if(scriptState != null)
                     {
                         @object = scriptState.ReturnValue;
@@ -93,7 +94,7 @@ namespace SAM.Core.Multitasker
 
             List<MultitaskerResult> multitaskerResults = Enumerable.Repeat<MultitaskerResult>(null, multitaskerInputs.Count()).ToList();
 
-            if(multitaskerMode == MultitaskerMode.Series)
+            if (multitaskerMode == MultitaskerMode.Series)
             {
                 for(int i =0; i < multitaskerInputs.Count(); i++)
                 {
@@ -102,10 +103,50 @@ namespace SAM.Core.Multitasker
             }
             else if(multitaskerMode == MultitaskerMode.Parallel)
             {
-                Parallel.For(0, multitaskerResults.Count, async i =>
+                if (maxConcurrency == int.MaxValue)
                 {
-                    multitaskerResults[i] = await func.Invoke(multitaskerInputs.ElementAt(i));
-                });
+                    Parallel.For(0, multitaskerResults.Count, async i =>
+                    {
+                        multitaskerResults[i] = await func.Invoke(multitaskerInputs.ElementAt(i));
+                    });
+                }
+                else
+                {
+                    using (SemaphoreSlim semaphoreSlim = new SemaphoreSlim(maxConcurrency))
+                    {
+                        List<Task> tasks = new List<Task>();
+                        object lockObject = new object();
+
+                        for (int i =0; i < multitaskerInputs.Count(); i++)  // Assuming modelsToRun is a collection of your models
+                        {
+                            int index = i;
+
+                            await semaphoreSlim.WaitAsync();
+                            Task task = Task.Run(async () => 
+                            {
+                                try
+                                {
+                                    var result = await func.Invoke(multitaskerInputs.ElementAt(index));
+                                    lock (lockObject)
+                                    {
+                                        multitaskerResults[index] = result;
+                                    }
+                                }
+                                catch(Exception exception)
+                                {
+
+                                }
+                                finally
+                                {
+                                    semaphoreSlim.Release();
+                                }
+                            });
+                            tasks.Add(task);
+                        }
+
+                        await Task.WhenAll(tasks);
+                    }
+                }
             }
 
             return new MultitaskerResults(multitaskerResults);
