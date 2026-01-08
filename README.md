@@ -1,1 +1,22 @@
+[![Build (Windows)](https://github.com/SAM-BIM/SAM_Multitasker/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/SAM-BIM/SAM_Multitasker/actions/workflows/build.yml)
+[![Installer (latest)](https://img.shields.io/github/v/release/SAM-BIM/SAM_Deploy?label=installer)](https://github.com/SAM-BIM/SAM_Deploy/releases/latest)
+
 # SAM_Multitasker
+
+<a href="https://github.com/HoareLea/SAM_Excel"><img src="https://github.com/HoareLea/SAM/blob/master/Grasshopper/SAM.Core.Grasshopper/Resources/SAM_Small.png" align="left" hspace="10" vspace="6"></a>
+
+**SAM** is part of SAM Toolkit that is designed to help engneers to create Analytical Model. Welcome and let's make the opensource journey continue. :handshake:
+
+## Resources
+* [Wiki](https://github.com/HoareLea/SAM/wiki)
+
+## Installing
+
+To install **SAM** from .exe just download and run [latest installer](https://github.com/SAM-BIM/SAM_Deploy/releases/latest) otherwise rebuild using VS [SAM](https://github.com/SAM-BIM/SAM)
+
+## Licence ##
+
+SAM is free software licenced under GNU Lesser General Public Licence - [https://www.gnu.org/licenses/lgpl-3.0.html](https://www.gnu.org/licenses/lgpl-3.0.html)  
+Each contributor holds copyright over their respective contributions.
+The project versioning (Git) records all such contribution source information.
+See [LICENSE](https://github.com/HoareLea/SAM_Template/blob/master/LICENSE) and [COPYRIGHT_HEADER](https://github.com/HoareLea/SAM/blob/master/COPYRIGHT_HEADER.txt).
