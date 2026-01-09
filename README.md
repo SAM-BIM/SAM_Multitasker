@@ -3,20 +3,71 @@
 
 # SAM_Multitasker
 
-<a href="https://github.com/HoareLea/SAM_Excel"><img src="https://github.com/HoareLea/SAM/blob/master/Grasshopper/SAM.Core.Grasshopper/Resources/SAM_Small.png" align="left" hspace="10" vspace="6"></a>
+<a href="https://github.com/SAM-BIM/SAM">
+  <img src="https://github.com/SAM-BIM/SAM/blob/master/Grasshopper/SAM.Core.Grasshopper/Resources/SAM_Small.png"
+       align="left" hspace="10" vspace="6">
+</a>
 
-**SAM** is part of SAM Toolkit that is designed to help engneers to create Analytical Model. Welcome and let's make the opensource journey continue. :handshake:
+**SAM_Multitasker** is part of the **SAM (Sustainable Analytical Model) Toolkit** —  
+an open-source collection of tools designed to help engineers create, manage,
+and process analytical building models for energy and environmental analysis.
+
+This repository provides **scenario orchestration and task execution utilities**
+that enable SAM simulations to be configured and executed
+**in series or in parallel**.
+
+It supports the creation, scheduling, and coordination of multiple simulation scenarios,
+allowing analytical workflows to be automated and scaled efficiently
+across different models, parameters, and simulation engines.
+
+Welcome — and let’s keep the open-source journey going. 🤝
+
+---
+
+## Features
+
+- Definition and management of simulation scenarios
+- Sequential and parallel execution of SAM workflows
+- Orchestration of batch simulation runs
+- Coordination of multi-parameter and multi-model studies
+
+---
 
 ## Resources
-* [Wiki](https://github.com/HoareLea/SAM/wiki)
+- 📘 **SAM Wiki:** https://github.com/SAM-BIM/SAM/wiki  
+- 🧠 **SAM Core:** https://github.com/SAM-BIM/SAM  
+- 🧰 **Installers:** https://github.com/SAM-BIM/SAM_Deploy  
+
+---
 
 ## Installing
 
-To install **SAM** from .exe just download and run [latest installer](https://github.com/SAM-BIM/SAM_Deploy/releases/latest) otherwise rebuild using VS [SAM](https://github.com/SAM-BIM/SAM)
+To install **SAM** using the Windows installer, download and run the  
+[latest installer](https://github.com/SAM-BIM/SAM_Deploy/releases/latest).
 
-## Licence ##
+Alternatively, you can build the toolkit from source using Visual Studio.  
+See the main repository for details:  
+👉 https://github.com/SAM-BIM/SAM
 
-SAM is free software licenced under GNU Lesser General Public Licence - [https://www.gnu.org/licenses/lgpl-3.0.html](https://www.gnu.org/licenses/lgpl-3.0.html)  
-Each contributor holds copyright over their respective contributions.
-The project versioning (Git) records all such contribution source information.
-See [LICENSE](https://github.com/HoareLea/SAM_Template/blob/master/LICENSE) and [COPYRIGHT_HEADER](https://github.com/HoareLea/SAM/blob/master/COPYRIGHT_HEADER.txt).
+---
+
+## Development notes
+
+- Target framework: **.NET / C#**
+- Task orchestration follows SAM-BIM workflow conventions
+- New or modified `.cs` files must include the SPDX header from `COPYRIGHT_HEADER.txt`
+
+---
+
+## Licence
+
+This repository is free software licensed under the  
+**GNU Lesser General Public License v3.0 or later (LGPL-3.0-or-later)**.
+
+Each contributor retains copyright to their respective contributions.  
+The project history (Git) records authorship and provenance of all changes.
+
+See:
+- `LICENSE`
+- `NOTICE`
+- `COPYRIGHT_HEADER.txt`
