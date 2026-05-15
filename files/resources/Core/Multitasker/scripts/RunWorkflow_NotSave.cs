@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using SAM.Core;
 using SAM.Analytical;
 using SAM.Analytical.Tas;

@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
 using System.Drawing;
-using System;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace SAM.Core.Multitasker
 {
@@ -44,9 +45,9 @@ namespace SAM.Core.Multitasker
             }
         }
 
-        public MultitaskerVariable(JObject jObject)
+        public MultitaskerVariable(JsonObject jObject)
         {
-            FromJObject(jObject);   
+            FromJsonObject(jObject);   
         }
 
         public string Name
@@ -83,7 +84,7 @@ namespace SAM.Core.Multitasker
             return default;
         }
 
-        public bool FromJObject(JObject jObject)
+        public bool FromJsonObject(JsonObject jObject)
         {
             if (jObject == null)
             {
@@ -92,17 +93,17 @@ namespace SAM.Core.Multitasker
 
             if (jObject.ContainsKey("Name"))
             {
-                name = jObject.Value<string>("Name");
+                name = jObject["Name"]?.GetValue<string>() ?? default(string);
             }
 
             if (jObject.ContainsKey("ValueType"))
             {
-                valueType = Core.Query.Enum<ValueType>(jObject.Value<string>("Name"));
+                valueType = Core.Query.Enum<ValueType>(jObject["Name"]?.GetValue<string>() ?? default(string));
             }
 
             if(jObject.ContainsKey("Value"))
             {
-                object value = jObject.Value<object>("Value");
+                object value = jObject["Value"]?.Deserialize<object>();
                 switch(valueType)
                 {
                     case ValueType.String:
@@ -155,7 +156,7 @@ namespace SAM.Core.Multitasker
                         break;
 
                     case ValueType.Undefined:
-                        if(value is JObject)
+                        if(value is JsonObject)
                         {
                             IJSAMObject jSAMObject_Undefined = Core.Query.IJSAMObject(jObject);
                             if (jSAMObject_Undefined != null)
@@ -173,9 +174,9 @@ namespace SAM.Core.Multitasker
             return true;
         }
 
-        public JObject ToJObject()
+        public JsonObject ToJsonObject()
         {
-            JObject result = new JObject();
+            JsonObject result = new JsonObject();
             result.Add("_type", Core.Query.FullTypeName(this));
 
             ValueType valueType = ValueType;
@@ -196,7 +197,7 @@ namespace SAM.Core.Multitasker
                     case ValueType.Color:
                         if (Core.Query.TryConvert(Value, out Color color))
                         {
-                            value = new SAMColor(color).ToJObject();
+                            value = new SAMColor(color).ToJsonObject();
                         }
                         break;
 
@@ -222,7 +223,7 @@ namespace SAM.Core.Multitasker
                         break;
 
                     case ValueType.IJSAMObject:
-                        value = ((IJSAMObject)Value).ToJObject();
+                        value = ((IJSAMObject)Value).ToJsonObject();
                         break;
 
                     case ValueType.Integer:
