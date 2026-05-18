@@ -1,5 +1,7 @@
-﻿
-using Newtonsoft.Json.Linq;
+﻿// SPDX-License-Identifier: LGPL-3.0-or-later
+// Copyright (c) 2020–2026 Michal Dengusiak & Jakub Ziolkowski and contributors
+
+using System.Text.Json.Nodes;
 using System;
 
 namespace SAM.Core.Multitasker
@@ -20,9 +22,9 @@ namespace SAM.Core.Multitasker
             }
         }
 
-        public Script(JObject jObject)
+        public Script(JsonObject jObject)
         {
-            FromJObject(jObject);
+            FromJsonObject(jObject);
         }
 
         public Script(ProgrammingLanguage programmingLanguage, string name, string code)
@@ -65,7 +67,7 @@ namespace SAM.Core.Multitasker
             return script.code == code && script.programmingLanguage == programmingLanguage && script.name == name;
         }
 
-        public bool FromJObject(JObject jObject)
+        public bool FromJsonObject(JsonObject jObject)
         {
             if(jObject == null)
             {
@@ -74,17 +76,17 @@ namespace SAM.Core.Multitasker
 
             if(jObject.ContainsKey("Code"))
             {
-                code = jObject.Value<string>("Code");
+                code = jObject["Code"]?.GetValue<string>() ?? default(string);
             }
 
             if (jObject.ContainsKey("Name"))
             {
-                name = jObject.Value<string>("Name");
+                name = jObject["Name"]?.GetValue<string>() ?? default(string);
             }
 
             if (jObject.ContainsKey("ProgrammingLanguage"))
             {
-                programmingLanguage = Core.Query.Enum<ProgrammingLanguage>(jObject.Value<string>("ProgrammingLanguage"));
+                programmingLanguage = Core.Query.Enum<ProgrammingLanguage>(jObject["ProgrammingLanguage"]?.GetValue<string>() ?? default(string));
             }
 
             return true;
@@ -149,9 +151,9 @@ namespace SAM.Core.Multitasker
             return script.code;
         }
 
-        public JObject ToJObject()
+        public JsonObject ToJsonObject()
         {
-            JObject result = new JObject();
+            JsonObject result = new JsonObject();
             result.Add("_type", Core.Query.FullTypeName(this));
 
             if(code != null)
