@@ -1,10 +1,11 @@
-using Newtonsoft.Json;
+// SPDX-License-Identifier: LGPL-3.0-or-later
+// Copyright (c) 2020–2026 Michal Dengusiak & Jakub Ziolkowski and contributors
 using SAM.Core;
 
 int index = SAM.Core.Query.IndexOf("abcd", 'c');
 
 var json = "{\"name\":\"John\", \"age\":30}";
-dynamic person = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+dynamic person = System.Text.Json.Nodes.JsonNode.Parse(json);
 
 int i = 1;
 int j = 2;

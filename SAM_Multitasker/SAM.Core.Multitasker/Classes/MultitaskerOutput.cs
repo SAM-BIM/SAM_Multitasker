@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿// SPDX-License-Identifier: LGPL-3.0-or-later
+// Copyright (c) 2020–2026 Michal Dengusiak & Jakub Ziolkowski and contributors
+using System.Text.Json.Nodes;
 using System;
 using System.Drawing;
 
@@ -24,9 +26,9 @@ namespace SAM.Core.Multitasker
             }
         }
 
-        public MultitaskerOutput(JObject jObject)
+        public MultitaskerOutput(JsonObject jObject)
         {
-            FromJObject(jObject);
+            FromJsonObject(jObject);
         }
 
         public object Result
@@ -37,11 +39,11 @@ namespace SAM.Core.Multitasker
             }
         }
 
-        public bool FromJObject(JObject jObject)
+        public bool FromJsonObject(JsonObject jObject)
         {
             if(jObject.ContainsKey("ValueType"))
             {
-                valueType = Core.Query.Enum<ValueType>(jObject.Value<string>("ValueType"));
+                valueType = Core.Query.Enum<ValueType>(jObject["ValueType"]?.GetValue<string>() ?? default(string));
             }
 
             if(jObject.ContainsKey("Result"))
@@ -49,23 +51,23 @@ namespace SAM.Core.Multitasker
                 switch (valueType)
                 {
                     case ValueType.Boolean:
-                        result = jObject.Value<bool>("Result");
+                        result = jObject["Result"]?.GetValue<bool>() ?? default(bool);
                         return true;
 
                     case ValueType.Color:
-                        result = new SAMColor(jObject.Value<JObject>("Result")).ToColor();
+                        result = new SAMColor(jObject["Result"] as JsonObject).ToColor();
                         return true;
 
                     case ValueType.DateTime:
-                        result = jObject.Value<DateTime>("Result");
+                        result = jObject["Result"]?.GetValue<DateTime>() ?? default(DateTime);
                         return true;
 
                     case ValueType.Double:
-                        result = jObject.Value<double>("Result");
+                        result = jObject["Result"]?.GetValue<double>() ?? default(double);
                         return true;
 
                     case ValueType.Guid:
-                        if (!Enum.TryParse(jObject.Value<string>("Result"), out Guid guid))
+                        if (!Enum.TryParse(jObject["Result"]?.GetValue<string>() ?? default(string), out Guid guid))
                         {
                             return false;
                         }
@@ -73,7 +75,7 @@ namespace SAM.Core.Multitasker
                         return true;
 
                     case ValueType.IJSAMObject:
-                        JObject jObject_Temp = jObject.Value<JObject>("Result");
+                        JsonObject jObject_Temp = jObject["Result"] as JsonObject;
                         if (jObject_Temp == null)
                         {
                             return false;
@@ -83,11 +85,11 @@ namespace SAM.Core.Multitasker
                         return true;
 
                     case ValueType.Integer:
-                        result = jObject.Value<int>("Result");
+                        result = jObject["Result"]?.GetValue<int>() ?? default(int);
                         return true;
 
                     case ValueType.String:
-                        result = jObject.Value<string>("Result");
+                        result = jObject["Result"]?.GetValue<string>() ?? default(string);
                         return true;
                 }
             }
@@ -95,9 +97,9 @@ namespace SAM.Core.Multitasker
             return true;
         }
 
-        public JObject ToJObject()
+        public JsonObject ToJsonObject()
         {
-            JObject jObject = new JObject();
+            JsonObject jObject = new JsonObject();
             jObject.Add("_type", Core.Query.FullTypeName(this));
 
             jObject.Add("ValueType", valueType.ToString());
@@ -117,7 +119,7 @@ namespace SAM.Core.Multitasker
                     case ValueType.Color:
                         if (Core.Query.TryConvert(result, out Color color))
                         {
-                            value = new SAMColor(color).ToJObject();
+                            value = new SAMColor(color).ToJsonObject();
                         }
                         break;
 
@@ -143,7 +145,7 @@ namespace SAM.Core.Multitasker
                         break;
 
                     case ValueType.IJSAMObject:
-                        value = ((IJSAMObject)result).ToJObject();
+                        value = ((IJSAMObject)result).ToJsonObject();
                         break;
 
                     case ValueType.Integer:

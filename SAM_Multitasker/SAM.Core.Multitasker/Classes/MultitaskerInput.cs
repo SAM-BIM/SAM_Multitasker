@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿// SPDX-License-Identifier: LGPL-3.0-or-later
+// Copyright (c) 2020–2026 Michal Dengusiak & Jakub Ziolkowski and contributors
+using System.Text.Json.Nodes;
 using System.Collections.Generic;
 
 namespace SAM.Core.Multitasker
@@ -63,9 +65,9 @@ namespace SAM.Core.Multitasker
             }
         }
 
-        public MultitaskerInput(JObject jObject)
+        public MultitaskerInput(JsonObject jObject)
         {
-            FromJObject(jObject);   
+            FromJsonObject(jObject);   
         }
 
         public bool Add(MultitaskerVariable multitaskerVariable)
@@ -84,7 +86,7 @@ namespace SAM.Core.Multitasker
             return true;
         }
 
-        public bool FromJObject(JObject jObject)
+        public bool FromJsonObject(JsonObject jObject)
         {
             if (jObject == null)
             {
@@ -95,8 +97,8 @@ namespace SAM.Core.Multitasker
             {
                 dictionary = new Dictionary<string, MultitaskerVariable>();
 
-                JArray jArray = jObject.Value<JArray>("MultitaskerVariables");
-                foreach(JObject jObject_MultitaskerVariable in jArray)
+                JsonArray jArray = jObject["MultitaskerVariables"] as JsonArray;
+                foreach(JsonObject jObject_MultitaskerVariable in jArray)
                 {
                     Add(new MultitaskerVariable(jObject_MultitaskerVariable));
                 }
@@ -105,14 +107,14 @@ namespace SAM.Core.Multitasker
             return true;
         }
 
-        public JObject ToJObject()
+        public JsonObject ToJsonObject()
         {
-            JObject result = new JObject();
+            JsonObject result = new JsonObject();
             result.Add("_type", Core.Query.FullTypeName(this));
 
             if(dictionary != null)
             {
-                JArray jArray = new JArray();
+                JsonArray jArray = new JsonArray();
 
                 foreach(MultitaskerVariable multitaskerVariable in dictionary.Values)
                 {
@@ -121,7 +123,7 @@ namespace SAM.Core.Multitasker
                         continue;
                     }
 
-                    jArray.Add(multitaskerVariable.ToJObject());
+                    jArray.Add(multitaskerVariable.ToJsonObject());
                 }
 
                 result.Add("MultitaskerVariables", jArray);
