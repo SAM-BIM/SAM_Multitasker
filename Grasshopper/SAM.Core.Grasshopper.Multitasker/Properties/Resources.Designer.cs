@@ -79,5 +79,95 @@ namespace SAM.Core.Grasshopper.Multitasker.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SAM_GH_Result {
+            get {
+                object obj = ResourceManager.GetObject("SAM_GH_Result", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SAM_GH_Script {
+            get {
+                object obj = ResourceManager.GetObject("SAM_GH_Script", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SAM_GH_ScriptLibraryGet {
+            get {
+                object obj = ResourceManager.GetObject("SAM_GH_ScriptLibraryGet", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SAM_GH_Settings {
+            get {
+                object obj = ResourceManager.GetObject("SAM_GH_Settings", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SAM_GH_SettingsCreate {
+            get {
+                object obj = ResourceManager.GetObject("SAM_GH_SettingsCreate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SAM_GH_TasksRun {
+            get {
+                object obj = ResourceManager.GetObject("SAM_GH_TasksRun", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SAM_GH_TasksValue {
+            get {
+                object obj = ResourceManager.GetObject("SAM_GH_TasksValue", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SAM_GH_Value {
+            get {
+                object obj = ResourceManager.GetObject("SAM_GH_Value", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SAM_GH_ValueCreate {
+            get {
+                object obj = ResourceManager.GetObject("SAM_GH_ValueCreate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
