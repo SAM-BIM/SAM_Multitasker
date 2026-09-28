@@ -24,7 +24,7 @@ namespace SAM.Core.Grasshopper.Multitasker
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
-        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_Small));
+        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_GH_ScriptLibraryGet));
 
         public override GH_Exposure Exposure => GH_Exposure.secondary;
 

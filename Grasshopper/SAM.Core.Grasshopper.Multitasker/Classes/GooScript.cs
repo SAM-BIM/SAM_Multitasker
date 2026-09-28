@@ -68,7 +68,7 @@ namespace SAM.Core.Grasshopper.Multitasker
     {
         public override Guid ComponentGuid => new Guid("400a16f6-a61d-4848-a9d6-6f0ade098ba3");
 
-        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_Small));
+        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_GH_Script));
 
         public GooScriptParam()
             : base("Script", "Script", "SAM Script", "Params", "SAM")

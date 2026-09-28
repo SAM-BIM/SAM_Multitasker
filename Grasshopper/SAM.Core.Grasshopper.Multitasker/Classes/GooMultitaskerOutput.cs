@@ -41,7 +41,7 @@ namespace SAM.Core.Grasshopper.Multitasker
     {
         public override Guid ComponentGuid => new Guid("cfc14cb0-df0a-4774-858a-7a652551b3bb");
 
-        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_Small));
+        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_GH_Result));
 
         public GooMultitaskerOutputParam()
             : base("MultitaskerOutput", "MultitaskerOutput", "SAM Multitasker MultitaskerOutput", "Params", "SAM")
