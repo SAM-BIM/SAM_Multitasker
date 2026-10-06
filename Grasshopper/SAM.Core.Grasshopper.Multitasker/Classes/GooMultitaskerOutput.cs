@@ -1,4 +1,7 @@
-﻿using Grasshopper.Kernel;
+﻿// SPDX-License-Identifier: LGPL-3.0-or-later
+// Copyright (c) 2020-2026 Michal Dengusiak & Jakub Ziolkowski and contributors
+
+using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using SAM.Core.Grasshopper.Multitasker.Properties;
 using SAM.Core.Multitasker;
@@ -41,7 +44,7 @@ namespace SAM.Core.Grasshopper.Multitasker
     {
         public override Guid ComponentGuid => new Guid("cfc14cb0-df0a-4774-858a-7a652551b3bb");
 
-        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_Small));
+        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_GH_Result));
 
         public GooMultitaskerOutputParam()
             : base("MultitaskerOutput", "MultitaskerOutput", "SAM Multitasker MultitaskerOutput", "Params", "SAM")
