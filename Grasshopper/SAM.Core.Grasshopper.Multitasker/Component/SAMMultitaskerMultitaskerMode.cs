@@ -1,4 +1,7 @@
-﻿using SAM.Core.Grasshopper.Multitasker.Properties;
+﻿// SPDX-License-Identifier: LGPL-3.0-or-later
+// Copyright (c) 2020-2026 Michal Dengusiak & Jakub Ziolkowski and contributors
+
+using SAM.Core.Grasshopper.Multitasker.Properties;
 using SAM.Core.Multitasker;
 using System;
 using System.Drawing;
@@ -21,7 +24,7 @@ namespace SAM.Core.Grasshopper.Multitasker
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
-        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_Small));
+        protected override Bitmap Icon => new Bitmap(new MemoryStream(Resources.SAM_GH_TasksValue));
 
         /// <summary>
         /// About SAM Enum Component

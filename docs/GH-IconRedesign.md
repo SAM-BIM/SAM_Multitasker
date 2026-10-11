@@ -1,0 +1,64 @@
+# SAM Grasshopper icon redesign — SAM_Multitasker PR record
+
+Branch `feature/sam-gh-icon-redesign-q4`, based on `sow/2026-Q4` @ `0a4b781c`. PR: SAM-BIM/SAM_Multitasker#10. Q4 migration of SAM-BIM/SAM_Multitasker#8 (`feature/sam-gh-icon-redesign` @ `670b41b`, based on `sow/2026-Q3` @ `5533796`, kept open for provenance): the same commits replayed onto `sow/2026-Q4`; Q3 history was not imported.
+Propagates the SAM icon design system from SAM-BIM/SAM#166 (head `cf4d924a`, open, not merged) to this repository.
+
+## Current status
+All **9** Grasshopper objects in this repo (5 components + 4 params) use redesigned icons: **9 / 9**.
+Built and validated; ready for review. **Not merged.**
+
+## Work completed
+- `design/grasshopper-icons/`: the shared SAM-BIM icon kit. `icons.py`, `render.py`, `sam_classify.py` and `ICON_DESIGN_SYSTEM.md` are vendored **verbatim** from SAM#166 (hash-checked). `icons_ext.py` and `ICON_DESIGN_SYSTEM_EXT.md` are the frozen SAM-BIM extension v1 (identical in every SAM-BIM repo). `tools/repo_rules.py` holds this repo's explicit decisions.
+- **Inventory**: `tools/inventory.py` parses C# source (every non-abstract class declaring `ComponentGuid`).
+- **Manifest** (source of truth): `manifest.json` / `manifest.csv` — per object: GUID, class, source, project, object glyph, operation, modifiers, icon id, resource, glyph/badge origin.
+- **Generation**: 9 canonical SVGs → 24×24 PNGs; review sheet `review/contact_sheet.png` (native 24 px on GH normal / orange-warning / dark bodies + 3×) and `review/REVIEW.md`.
+- **Integration**: each project's existing mechanism; only the icon token inside each `Icon` getter changes.
+
+| Project | Objects | Icon resources | Mechanism |
+|---|---|---|---|
+| `SAM.Core.Grasshopper.Multitasker` | 9 | 9 | resx / byte[] |
+
+## Design reuse
+- **Reused SAM object families (3)**: `result`, `settings`, `value`
+- **New SAM-BIM ext v1 families used (2)**: `script`, `tasks`
+- **Verbs**: `create`, `get`, `run`, `value`; new ext verb: `run`
+- Distinct icons: **9** (5 on SAM glyphs, 4 on ext glyphs). Icon ids shared with SAM render pixel-identically to SAM's.
+
+## Decisions and assumptions
+- Grammar, palette, badge families and construction rules are unchanged (SAM#166). No text, no new colours.
+- Qualifier variants (`…By<X>`) share an icon intentionally (see `review/REVIEW.md`).
+- Interop direction: external → SAM = import ↓, SAM → external = export ↑.
+- Multitasker uses ext `tasks` (+ ext verb `run`); scripts use ext `script`; Input/Output/Variable reuse SAM `value`/`result`/`settings`.
+- This project stores icons as `byte[]` resources (like SAM.Analytical.Grasshopper); the generated resources match.
+- Both `Component/SAMCoreReadExcel.cs` files are excluded from compilation (`<Compile Remove>`); they hold stale copies of SAM core's `GetNames` (same GUID), so they are not inventoried and not changed. `SAM.Analytical.Grasshopper.Multitasker` therefore has no GH objects.
+- Legacy icon resources are kept (still referenced by context menus / AssemblyInfo); no GUID, name, nickname, category, subcategory, parameter or behaviour change.
+
+## Files changed
+- New: `design/grasshopper-icons/**`, `<project>/Resources/Icons/SAM_GH_*.png`, `docs/GH-IconRedesign.md`.
+- Modified: 9 component/param `.cs` files (one icon token each), 1× `Resources.resx`, 1× `Resources.Designer.cs`. No csproj change.
+
+## Validation
+| Check | Result |
+|---|---|
+| `tools/classify.py` | 9 classified, 0 unclassified |
+| `tools/build.py` identical-pixel collision check | 0 groups (9 distinct icons; 0 intentionally shared icon(s) for qualifier variants, listed in `review/REVIEW.md`) |
+| Icon ids shared with SAM#166 vs SAM's `png/24` | 3 shared, 3 byte-identical |
+| `tools/integrate.py` re-parse | 9/9 objects reference their `SAM_GH_*` resource; every PNG exists |
+| `tools/check_source.py` vs `origin/sow/2026-Q3` | vendored files OK; icon-token swaps: 9, non-icon changes: 0; base 12, now 12 -> UNCHANGED |
+| `dotnet build SAM_Multitasker.sln -c Debug` | Build succeeded, 0 errors |
+| `tools/check_assemblies.py` | every assembly embeds every required 24×24 icon → OK |
+| `tests/GhIconTest` (real Rhino 8 / Grasshopper, Rhino.Testing) | 9/9 objects verified: 9 load in real Rhino 8 / Grasshopper by GUID (name/category match); icon = manifest PNG (max diff 1 level, premultiplied-alpha rounding) |
+| Repository test projects | none in this repository |
+| Visual review (`review/contact_sheet.png`, 24 px on normal / warning / dark bodies) | all icons legible; no collisions |
+
+## Unresolved issues / risks
+- Built against sibling repos as checked out locally (SAM on `feature/sam-gh-icon-redesign` = SAM#166); icon changes are API-neutral.
+
+## Recommended next step
+Review this PR (compare `review/contact_sheet.png`), then merge by the maintainer. After merge, add the `PROJECT_PROGRESS.md` closeout entry on `sow/2026-Q4` with the merge SHA. SAM#166 (the reference design system) remains open.
+
+## SPDX header policy (CI `spdx-check`)
+The repository SPDX check requires the LGPL-3.0-or-later SPDX line and the copyright line in every `.cs` file a PR changes. The icon-token swaps touched 10 older files that predated the policy (components, `Resources.Designer.cs`), and the kit test `IconTests.cs` had no header. The standard 2-line header was added to them; nothing else changed. `tools/check_source.py` accepts exactly this header as the only non-icon addition and compares against the merge base.
+
+## Q4 migration validation
+Re-validated on `sow/2026-Q4` @ `0a4b781c`: `design/grasshopper-icons/tools/check_source.py origin/sow/2026-Q4` OK (icon-token swaps: 9, SPDX headers added: 9, non-icon changes: 0, ComponentGuid declarations unchanged); `dotnet build SAM_Multitasker.sln -c Debug` succeeded with 0 errors; `check_assemblies.py build` OK; tests: no test project in this repository. The Q4 feature diff (before this record commit) has the same patch-id, file set and blobs as the Q3 PR's feature diff.

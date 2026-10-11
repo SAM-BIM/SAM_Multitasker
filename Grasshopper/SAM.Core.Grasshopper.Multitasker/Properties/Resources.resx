@@ -124,4 +124,31 @@
   <data name="SAM_Small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SAM_Small.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="SAM_GH_Result" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\SAM_GH_Result.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SAM_GH_Script" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\SAM_GH_Script.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SAM_GH_ScriptLibraryGet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\SAM_GH_ScriptLibraryGet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SAM_GH_Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\SAM_GH_Settings.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SAM_GH_SettingsCreate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\SAM_GH_SettingsCreate.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SAM_GH_TasksRun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\SAM_GH_TasksRun.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SAM_GH_TasksValue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\SAM_GH_TasksValue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SAM_GH_Value" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\SAM_GH_Value.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SAM_GH_ValueCreate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\SAM_GH_ValueCreate.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
