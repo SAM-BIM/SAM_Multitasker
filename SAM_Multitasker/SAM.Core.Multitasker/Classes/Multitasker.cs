@@ -1,4 +1,7 @@
-﻿using Microsoft.CodeAnalysis;
+// SPDX-License-Identifier: LGPL-3.0-or-later
+// Copyright (c) 2020-2026 Michal Dengusiak & Jakub Ziolkowski and contributors
+
+using RoslynDiagnostic = Microsoft.CodeAnalysis.Diagnostic;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 using System;
@@ -52,7 +55,7 @@ namespace SAM.Core.Multitasker
 
             Script<object> script = CSharpScript.Create(code, scriptOptions, typeof(MultitaskerInput));
 
-            ImmutableArray<Diagnostic> immutableArray = script.Compile();
+            ImmutableArray<RoslynDiagnostic> immutableArray = script.Compile();
             if(immutableArray.Length != 0)
             {
                 return new MultitaskerResults(immutableArray);
