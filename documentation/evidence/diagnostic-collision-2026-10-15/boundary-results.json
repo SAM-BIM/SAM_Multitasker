@@ -1,0 +1,38 @@
+[
+  {
+    "label": "morning-good",
+    "sam": "0649e15ee9c1727af5834d9206017da9860917c5",
+    "multitasker": "aa126fa6eeb34cbffb72cbf5a5129aa17be1ec6b",
+    "core_build_exit": 0,
+    "consumer_exit": 0,
+    "probe_exit": 0
+  },
+  {
+    "label": "parent-good",
+    "sam": "a71435dd88d28c9b0da0bca43c21fbca5e1038b9",
+    "multitasker": "aa126fa6eeb34cbffb72cbf5a5129aa17be1ec6b",
+    "core_build_exit": 0,
+    "consumer_exit": 0,
+    "probe_exit": 0
+  },
+  {
+    "label": "first-diagnostic",
+    "sam": "967a8639eb6f7f614ff4168d62ab3dfd979efbe4",
+    "multitasker": "aa126fa6eeb34cbffb72cbf5a5129aa17be1ec6b",
+    "core_build_exit": 0,
+    "consumer_exit": 1
+  },
+  {
+    "label": "q4-before-204",
+    "sam": "6b12e2a65817556693ba408674211610f4a20dda",
+    "multitasker": "aa126fa6eeb34cbffb72cbf5a5129aa17be1ec6b",
+    "core_build_exit": 0,
+    "consumer_exit": 1
+  },
+  {
+    "label": "first-diagnostic-fixed",
+    "sam": "967a8639eb6f7f614ff4168d62ab3dfd979efbe4",
+    "consumer_exit": 0,
+    "probe_exit": 0
+  }
+]

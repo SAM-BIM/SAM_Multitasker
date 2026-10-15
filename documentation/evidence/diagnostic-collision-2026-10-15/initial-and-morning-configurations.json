@@ -1,0 +1,236 @@
+[
+  {
+    "repository": "SAM",
+    "head": "4a8afbebb186ace81eb5d49aed32deb502120781",
+    "branch": "docs/gh-component-standards-q4",
+    "status": "",
+    "morning_start": "0649e15ee9c1727af5834d9206017da9860917c5",
+    "morning_end": "0649e15ee9c1727af5834d9206017da9860917c5",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Psychrometrics",
+    "head": "4db5756ed9957d625837014d6e8ce71e23df56b0",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "4c91e532409589b7125a9b3a42ad2551aac4c1c7",
+    "morning_end": "4c91e532409589b7125a9b3a42ad2551aac4c1c7",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Mollier",
+    "head": "7f61916adad9ad913904d18047ec6bfe835d1611",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "7f61916adad9ad913904d18047ec6bfe835d1611",
+    "morning_end": "7f61916adad9ad913904d18047ec6bfe835d1611",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Systems",
+    "head": "f0838ca3eba3e4b5f1cee008ba0831b6d7e95625",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "f0838ca3eba3e4b5f1cee008ba0831b6d7e95625",
+    "morning_end": "f0838ca3eba3e4b5f1cee008ba0831b6d7e95625",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Windows",
+    "head": "11bbecfa8aa854f4d9b2494c8bca737298982751",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "11bbecfa8aa854f4d9b2494c8bca737298982751",
+    "morning_end": "11bbecfa8aa854f4d9b2494c8bca737298982751",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_IFC",
+    "head": "77046bef504474619cf39afbbc70ee7975aad50c",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "77046bef504474619cf39afbbc70ee7975aad50c",
+    "morning_end": "77046bef504474619cf39afbbc70ee7975aad50c",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Acoustic",
+    "head": "baed72cb439f6c23fdd16725f497be67938dc54a",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "baed72cb439f6c23fdd16725f497be67938dc54a",
+    "morning_end": "baed72cb439f6c23fdd16725f497be67938dc54a",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_BHoM",
+    "head": "995caace61164bf281501613e8ec4f3008053f39",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "995caace61164bf281501613e8ec4f3008053f39",
+    "morning_end": "995caace61164bf281501613e8ec4f3008053f39",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_gbXML",
+    "head": "43b5d018ac7a8a14f332e8bcde9cb0d613bf1efb",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "43b5d018ac7a8a14f332e8bcde9cb0d613bf1efb",
+    "morning_end": "43b5d018ac7a8a14f332e8bcde9cb0d613bf1efb",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_GEM",
+    "head": "1bf41916fefa6dd5fe44a735c294619d3d8df8d9",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "1bf41916fefa6dd5fe44a735c294619d3d8df8d9",
+    "morning_end": "1bf41916fefa6dd5fe44a735c294619d3d8df8d9",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_LadybugTools",
+    "head": "0ffbaecf1097a33de2044ee919c963eaeb0a0da2",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "0ffbaecf1097a33de2044ee919c963eaeb0a0da2",
+    "morning_end": "0ffbaecf1097a33de2044ee919c963eaeb0a0da2",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Solver",
+    "head": "fd63b4670cd4baeb20a74312aacc17eb177ecc18",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "fd63b4670cd4baeb20a74312aacc17eb177ecc18",
+    "morning_end": "fd63b4670cd4baeb20a74312aacc17eb177ecc18",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_SolarCalculator",
+    "head": "277a3a4864f2bf900504a64a4830cb9438312d78",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "277a3a4864f2bf900504a64a4830cb9438312d78",
+    "morning_end": "277a3a4864f2bf900504a64a4830cb9438312d78",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Validation",
+    "head": "c9a7f193f46289f52eecdd4a7dc6179789f2c4e9",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "c9a7f193f46289f52eecdd4a7dc6179789f2c4e9",
+    "morning_end": "c9a7f193f46289f52eecdd4a7dc6179789f2c4e9",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Tas",
+    "head": "0589f0da7e2633478c26defdb237ceb0821ebdf9",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "0589f0da7e2633478c26defdb237ceb0821ebdf9",
+    "morning_end": "0589f0da7e2633478c26defdb237ceb0821ebdf9",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Tas_Grasshopper",
+    "head": "d827409a10e8911f9eb6b5e81d1cbb341c2fc0ce",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "d827409a10e8911f9eb6b5e81d1cbb341c2fc0ce",
+    "morning_end": "d827409a10e8911f9eb6b5e81d1cbb341c2fc0ce",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Excel",
+    "head": "6669977d07cc6488c0dd91fe0a48ccd2dc833627",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "6669977d07cc6488c0dd91fe0a48ccd2dc833627",
+    "morning_end": "6669977d07cc6488c0dd91fe0a48ccd2dc833627",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_SQLite",
+    "head": "ec2eb86d00cac6e4cadf52b429f9d293eeabbd5e",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "ec2eb86d00cac6e4cadf52b429f9d293eeabbd5e",
+    "morning_end": "ec2eb86d00cac6e4cadf52b429f9d293eeabbd5e",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_OpenStudio",
+    "head": "3746eed5a82281f22e94df76027a7f99cdbe68b8",
+    "branch": "feature/openstudio-diagnostics-phase4a-q4",
+    "status": "",
+    "morning_start": "fb21e03fee89d8c42758c1a84e23ed46e4e79fd9",
+    "morning_end": "fb21e03fee89d8c42758c1a84e23ed46e4e79fd9",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Origin",
+    "head": "74c19a1ebf3fc11a136cc9b055edf68b2b91a087",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "74c19a1ebf3fc11a136cc9b055edf68b2b91a087",
+    "morning_end": "74c19a1ebf3fc11a136cc9b055edf68b2b91a087",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Multitasker",
+    "head": "aa126fa6eeb34cbffb72cbf5a5129aa17be1ec6b",
+    "branch": "codex/fix-roslyn-diagnostic-collision-q4",
+    "status": "",
+    "morning_start": "aa126fa6eeb34cbffb72cbf5a5129aa17be1ec6b",
+    "morning_end": "aa126fa6eeb34cbffb72cbf5a5129aa17be1ec6b",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_OCCT",
+    "head": "aad68123373e0dfe5841ec9670ec1b004960c73f",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "46dac7ab915b11bc7f6d8f13b3ec7dc168c27248",
+    "morning_end": "46dac7ab915b11bc7f6d8f13b3ec7dc168c27248",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_UI",
+    "head": "ebe5e09b30b95e43e5d047b3aef2d8c5f01110e9",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "ebe5e09b30b95e43e5d047b3aef2d8c5f01110e9",
+    "morning_end": "ebe5e09b30b95e43e5d047b3aef2d8c5f01110e9",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Rhino_UI",
+    "head": "24fafda03cef5168abf1e43a1669a2fe42490f8d",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "24fafda03cef5168abf1e43a1669a2fe42490f8d",
+    "morning_end": "24fafda03cef5168abf1e43a1669a2fe42490f8d",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Revit",
+    "head": "431d34ef4bcff8f34e8caa32e893ebfc471cb678",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "431d34ef4bcff8f34e8caa32e893ebfc471cb678",
+    "morning_end": "431d34ef4bcff8f34e8caa32e893ebfc471cb678",
+    "morning_reflog_entries": ""
+  },
+  {
+    "repository": "SAM_Revit_UI",
+    "head": "06cf245af93dfd29521bbf925a4b7f3cf934af18",
+    "branch": "sow/2026-Q4",
+    "status": "",
+    "morning_start": "06cf245af93dfd29521bbf925a4b7f3cf934af18",
+    "morning_end": "06cf245af93dfd29521bbf925a4b7f3cf934af18",
+    "morning_reflog_entries": ""
+  }
+]
