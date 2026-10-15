@@ -2,9 +2,9 @@
 
 ## Status and scope
 
-Focused correction into `sow/2026-Q4`, based on Multitasker `aa126fa6eeb34cbffb72cbf5a5129aa17be1ec6b`.
+PR [SAM_Multitasker#12](https://github.com/SAM-BIM/SAM_Multitasker/pull/12), focused correction into `sow/2026-Q4`, based on Multitasker `aa126fa6eeb34cbffb72cbf5a5129aa17be1ec6b`.
 Validated content SHA: `cfe9d116c1d9837e23ada308d535029eaf6de773`.
-Affected-project build and all four NUnit tests pass locally. Full BuildAlls_v5 and final GitHub checks are pending. No merge authorized.
+Affected-project build, all four NUnit tests, and full BuildAlls_v5 pass locally. Initial PR-head GitHub Build and SPDX pass; final record-only head checks are reported in the PR description. No merge authorized.
 SAM#204 is unchanged and can proceed independently of this correction: the failure reproduces at its Q4 base, before its changes.
 
 ## Proven cause and dependency boundary
@@ -40,7 +40,7 @@ The same JSON records the clean investigation-start heads/branches. Multitasker'
 - `SAM_Multitasker/SAM.Core.Multitasker/Classes/MultitaskerResults.cs`: same alias for storage, constructor and public property. Historical CLR types remain `IEnumerable<Microsoft.CodeAnalysis.Diagnostic>` / `List<Microsoft.CodeAnalysis.Diagnostic>`.
 - Both touched production files receive required SPDX headers.
 - Existing `design/grasshopper-icons/tests/GhIconTest/GhIconTest.csproj`: reference the core project; new `MultitaskerDiagnosticsTests.cs` covers public types, object-preserving diagnostic transfer and invalid-script compilation errors.
-- This record and three compact JSON evidence files preserve the boundary and repository configurations.
+- This record and four compact JSON evidence files preserve the boundary and repository configurations.
 - No algorithm, component, shared SAM.Core type, workflow or PROJECT_PROGRESS change. No SAM#204 edits.
 
 ## Reproduction and local validation
@@ -61,10 +61,13 @@ dotnet test design/grasshopper-icons/tests/GhIconTest/GhIconTest.csproj -c Debug
 - Existing NUnit project: **4 passed, 0 failed, 0 skipped** (three new regression tests plus existing icon test).
 - Isolated boundary: exact outcomes above, raw summary in [boundary-results.json](evidence/diagnostic-collision-2026-10-15/boundary-results.json).
 - Similar-collision audit: only other active Roslyn source is in SAM_Tas GenOpt test namespaces. It uses inferred diagnostic values and Roslyn DiagnosticSeverity without the affected SAM.Core namespace lookup; no equivalent collision found. No Tas changes.
-- Full BuildAlls_v5: running; final result to be recorded before review readiness.
+- Full BuildAlls_v5: **PASS**, exit 0, `00:07:41.6286121`, 2026-10-15 21:07:51–21:15:36 +02. All 26 active repositories Restore/Clean/Rebuild, Revit 2025/2026/2027 and final OCCT ABI/dependency/hash checks passed. CS0029 is absent; no new build errors. Existing warnings remain (package compatibility/duplicate references, assembly-version/architecture conflicts and XML documentation). This is build validation, not general installed-host engineering acceptance.
+- GitHub Build at record-only head `7f95bfb7d92006ae37324bf472717cc97929ba1a`: **PASS**, [run 38791612549](https://github.com/SAM-BIM/SAM_Multitasker/actions/runs/38791612549); SPDX also passed. Logs confirm `Cloning SAM-BIM/SAM @ sow/2026-Q4` and actual SAM.Core.Multitasker compilation with no CS0029. Final docs-only commit checks are tracked in the PR description.
+- Post-build status: all 26 source trees clean; only Multitasker head advanced from tested content by its record-only commit. SAM#204 remains clean at `4a8afbebb186ace81eb5d49aed32deb502120781`. [validation-results.json](evidence/diagnostic-collision-2026-10-15/validation-results.json) records full-run timing, test totals and SHA256 hashes of the retained machine-local logs/TRX.
 
 Machine-local scratch evidence is under `C:\Users\michal\.codex\visualizations\2026\10\15\01a140c3-07d7-7db2-83db-a3f98397ac92\multitasker-regression`: `investigate.py` archive harness, core/consumer/probe logs, affected-project log, NUnit TRX, and full-run log. These raw logs/harness are not committed; copy/provision them if needed on another machine. The committed tests, JSON matrix and exact SHAs/commands above preserve the critical outcomes. Original pre-fix log: adjacent `pr204-review/Multitasker-before-fix.log`.
 
 ## Remaining work
 
-Wait for full BuildAlls and final-head GitHub checks; inspect CI dependency selection and compilation logs. Request owner review, then merge only with approval. After merge, add the known-merge-SHA docs-only Q4 closeout under repository policy. Keep SAM#204 independent.
+Verify final record-only head GitHub checks, then request owner review and merge only with approval. The tested source remains `cfe9d116c1d9837e23ada308d535029eaf6de773`; subsequent commits change records only. After merge, add the known-merge-SHA docs-only Q4 closeout under repository policy. Keep SAM#204 independent.
+
