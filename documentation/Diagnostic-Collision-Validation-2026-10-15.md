@@ -70,4 +70,3 @@ Machine-local scratch evidence is under `C:\Users\michal\.codex\visualizations\2
 ## Remaining work
 
 Verify final record-only head GitHub checks, then request owner review and merge only with approval. The tested source remains `cfe9d116c1d9837e23ada308d535029eaf6de773`; subsequent commits change records only. After merge, add the known-merge-SHA docs-only Q4 closeout under repository policy. Keep SAM#204 independent.
-
