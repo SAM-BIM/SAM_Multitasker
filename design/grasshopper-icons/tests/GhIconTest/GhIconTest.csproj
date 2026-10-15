@@ -18,4 +18,7 @@
   <ItemGroup>
     <None Update="Rhino.Testing.Configs.xml" CopyToOutputDirectory="Always" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SAM_Multitasker\SAM.Core.Multitasker\SAM.Core.Multitasker.csproj" />
+  </ItemGroup>
 </Project>

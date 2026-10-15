@@ -1,0 +1,48 @@
+{
+  "content_sha": "cfe9d116c1d9837e23ada308d535029eaf6de773",
+  "full_build": {
+    "ExitCode": 0,
+    "Ended": "2026-10-15T21:15:36.0723581+02:00",
+    "Started": "2026-10-15T21:07:51.7173742+02:00"
+  },
+  "duration": "00:07:41.6286121",
+  "repositories": 26,
+  "revit_years": [
+    2025,
+    2026,
+    2027
+  ],
+  "tests": {
+    "passed": 4,
+    "skipped": 0,
+    "failed": 0
+  },
+  "github_initial_build": "https://github.com/SAM-BIM/SAM_Multitasker/actions/runs/38791612549",
+  "files": [
+    {
+      "file": "BuildAlls_v5-after.log",
+      "bytes": 5894718,
+      "sha256": "889e6260a8b59bef0d24bc8506b8734beb06eab1e745fe601335d259ace536bc"
+    },
+    {
+      "file": "affected-project-after.log",
+      "bytes": 9901,
+      "sha256": "cfaef568d0307e694235692d5b3ca71d4ed48aa482dca3db4dce3b0a390808c6"
+    },
+    {
+      "file": "tests-after.log",
+      "bytes": 5481,
+      "sha256": "ec70780f6ea8bf63f1fdf6433eb2aa0029cc8e805c43bba9f3612aaad3b29e51"
+    },
+    {
+      "file": "test-results\\Multitasker-regression.trx",
+      "bytes": 7170,
+      "sha256": "e21420fef6f415ebe69ac2d9ce86d2e06235b55a818a3fa75165699c5613e489"
+    },
+    {
+      "file": "github-build-initial.log",
+      "bytes": 155033,
+      "sha256": "d3186f1c847e29ac4f3a660918ef07261d9e1195027a6f90369c3c23b7b43e9d"
+    }
+  ]
+}

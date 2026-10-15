@@ -1,4 +1,7 @@
-﻿using Microsoft.CodeAnalysis;
+// SPDX-License-Identifier: LGPL-3.0-or-later
+// Copyright (c) 2020-2026 Michal Dengusiak & Jakub Ziolkowski and contributors
+
+using RoslynDiagnostic = Microsoft.CodeAnalysis.Diagnostic;
 using System;
 using System.Collections.Generic;
 
@@ -6,14 +9,14 @@ namespace SAM.Core.Multitasker
 {
     public class MultitaskerResults
     {
-        private List<Diagnostic> diagnostics;
+        private List<RoslynDiagnostic> diagnostics;
         private List<MultitaskerResult> multitaskerResults;
 
 
-        public MultitaskerResults(IEnumerable<Diagnostic> diagnostics)
+        public MultitaskerResults(IEnumerable<RoslynDiagnostic> diagnostics)
         {
             multitaskerResults = null;
-            this.diagnostics = diagnostics == null ? null : new List<Diagnostic> (diagnostics);
+            this.diagnostics = diagnostics == null ? null : new List<RoslynDiagnostic> (diagnostics);
         }
 
         public MultitaskerResults(IEnumerable<MultitaskerResult> multitaskerResults)
@@ -29,7 +32,7 @@ namespace SAM.Core.Multitasker
             }
         }
 
-        public List<Diagnostic> Diagnostics
+        public List<RoslynDiagnostic> Diagnostics
         {
             get
             {

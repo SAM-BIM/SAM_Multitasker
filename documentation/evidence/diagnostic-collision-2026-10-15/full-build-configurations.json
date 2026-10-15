@@ -1,0 +1,158 @@
+[
+  {
+    "repository": "SAM",
+    "branch": "docs/gh-component-standards-q4",
+    "head": "4a8afbebb186ace81eb5d49aed32deb502120781",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Psychrometrics",
+    "branch": "sow/2026-Q4",
+    "head": "4db5756ed9957d625837014d6e8ce71e23df56b0",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Mollier",
+    "branch": "sow/2026-Q4",
+    "head": "7f61916adad9ad913904d18047ec6bfe835d1611",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Systems",
+    "branch": "sow/2026-Q4",
+    "head": "f0838ca3eba3e4b5f1cee008ba0831b6d7e95625",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Windows",
+    "branch": "sow/2026-Q4",
+    "head": "11bbecfa8aa854f4d9b2494c8bca737298982751",
+    "status": ""
+  },
+  {
+    "repository": "SAM_IFC",
+    "branch": "sow/2026-Q4",
+    "head": "77046bef504474619cf39afbbc70ee7975aad50c",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Acoustic",
+    "branch": "sow/2026-Q4",
+    "head": "baed72cb439f6c23fdd16725f497be67938dc54a",
+    "status": ""
+  },
+  {
+    "repository": "SAM_BHoM",
+    "branch": "sow/2026-Q4",
+    "head": "995caace61164bf281501613e8ec4f3008053f39",
+    "status": ""
+  },
+  {
+    "repository": "SAM_gbXML",
+    "branch": "sow/2026-Q4",
+    "head": "43b5d018ac7a8a14f332e8bcde9cb0d613bf1efb",
+    "status": ""
+  },
+  {
+    "repository": "SAM_GEM",
+    "branch": "sow/2026-Q4",
+    "head": "1bf41916fefa6dd5fe44a735c294619d3d8df8d9",
+    "status": ""
+  },
+  {
+    "repository": "SAM_LadybugTools",
+    "branch": "sow/2026-Q4",
+    "head": "0ffbaecf1097a33de2044ee919c963eaeb0a0da2",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Solver",
+    "branch": "sow/2026-Q4",
+    "head": "fd63b4670cd4baeb20a74312aacc17eb177ecc18",
+    "status": ""
+  },
+  {
+    "repository": "SAM_SolarCalculator",
+    "branch": "sow/2026-Q4",
+    "head": "277a3a4864f2bf900504a64a4830cb9438312d78",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Validation",
+    "branch": "sow/2026-Q4",
+    "head": "c9a7f193f46289f52eecdd4a7dc6179789f2c4e9",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Tas",
+    "branch": "sow/2026-Q4",
+    "head": "0589f0da7e2633478c26defdb237ceb0821ebdf9",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Tas_Grasshopper",
+    "branch": "sow/2026-Q4",
+    "head": "d827409a10e8911f9eb6b5e81d1cbb341c2fc0ce",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Excel",
+    "branch": "sow/2026-Q4",
+    "head": "6669977d07cc6488c0dd91fe0a48ccd2dc833627",
+    "status": ""
+  },
+  {
+    "repository": "SAM_SQLite",
+    "branch": "sow/2026-Q4",
+    "head": "ec2eb86d00cac6e4cadf52b429f9d293eeabbd5e",
+    "status": ""
+  },
+  {
+    "repository": "SAM_OpenStudio",
+    "branch": "feature/openstudio-diagnostics-phase4a-q4",
+    "head": "3746eed5a82281f22e94df76027a7f99cdbe68b8",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Origin",
+    "branch": "sow/2026-Q4",
+    "head": "74c19a1ebf3fc11a136cc9b055edf68b2b91a087",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Multitasker",
+    "branch": "codex/fix-roslyn-diagnostic-collision-q4",
+    "head": "cfe9d116c1d9837e23ada308d535029eaf6de773",
+    "status": ""
+  },
+  {
+    "repository": "SAM_OCCT",
+    "branch": "sow/2026-Q4",
+    "head": "aad68123373e0dfe5841ec9670ec1b004960c73f",
+    "status": ""
+  },
+  {
+    "repository": "SAM_UI",
+    "branch": "sow/2026-Q4",
+    "head": "ebe5e09b30b95e43e5d047b3aef2d8c5f01110e9",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Rhino_UI",
+    "branch": "sow/2026-Q4",
+    "head": "24fafda03cef5168abf1e43a1669a2fe42490f8d",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Revit",
+    "branch": "sow/2026-Q4",
+    "head": "431d34ef4bcff8f34e8caa32e893ebfc471cb678",
+    "status": ""
+  },
+  {
+    "repository": "SAM_Revit_UI",
+    "branch": "sow/2026-Q4",
+    "head": "06cf245af93dfd29521bbf925a4b7f3cf934af18",
+    "status": ""
+  }
+]
